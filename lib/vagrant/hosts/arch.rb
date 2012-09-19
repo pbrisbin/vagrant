@@ -46,7 +46,7 @@ module Vagrant
       private
 
       def systemd?
-        system("which systemctl &>/dev/null")
+        `ps -o comm= 1`.chomp == 'systemd'
       end
     end
   end
